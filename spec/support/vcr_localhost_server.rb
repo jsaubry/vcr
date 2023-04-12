@@ -48,7 +48,7 @@ module VCR
     end
 
     def booted?
-      res = ::Net::HTTP.get_response("localhost", '/__identify__', port)
+      res = ::Net::HTTP.get_response("127.0.0.1", '/__identify__', port)
       if res.is_a?(::Net::HTTPSuccess) or res.is_a?(::Net::HTTPRedirection)
         return res.body == READY_MESSAGE
       end
